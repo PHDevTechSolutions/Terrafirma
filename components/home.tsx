@@ -99,8 +99,8 @@ export function HomePage({ className, ...props }: React.ComponentProps<"div">) {
     }
 
     const href = isMobileDevice()
-        ? "mailto:office@terrafirmastrategies.com"
-        : "https://mail.google.com/mail/?view=cm&fs=1&to=office@terrafirmastrategies.com";
+  ? "intent://mail.google.com/mail/?view=cm&to=office@terrafirmastrategies.com#Intent;scheme=https;package=com.google.android.gm;end"
+  : "https://mail.google.com/mail/?view=cm&fs=1&to=office@terrafirmastrategies.com";
 
     return (
         <div className={cn("w-full bg-white text-gray-900 overflow-x-hidden", className)} {...props}>
