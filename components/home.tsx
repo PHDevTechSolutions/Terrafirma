@@ -93,6 +93,15 @@ export function HomePage({ className, ...props }: React.ComponentProps<"div">) {
         }
     };
 
+    function isMobileDevice() {
+        if (typeof navigator === "undefined") return false;
+        return /Mobi|Android/i.test(navigator.userAgent);
+    }
+
+    const href = isMobileDevice()
+        ? "mailto:office@terrafirmastrategies.com"
+        : "https://mail.google.com/mail/?view=cm&fs=1&to=office@terrafirmastrategies.com";
+
     return (
         <div className={cn("w-full bg-white text-gray-900 overflow-x-hidden", className)} {...props}>
             {/* Header */}
@@ -362,7 +371,7 @@ export function HomePage({ className, ...props }: React.ComponentProps<"div">) {
             )}
 
             <motion.a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=office@terrafirmastrategies.com"
+                href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Send email to Terrafirma Marketing Consulting Services via Gmail"

@@ -62,6 +62,15 @@ export function HomePage4({ className, ...props }: React.ComponentProps<"div">) 
         scrollToTop();
     };
 
+    function isMobileDevice() {
+        if (typeof navigator === "undefined") return false;
+        return /Mobi|Android/i.test(navigator.userAgent);
+    }
+
+    const href = isMobileDevice()
+        ? "mailto:office@terrafirmastrategies.com"
+        : "https://mail.google.com/mail/?view=cm&fs=1&to=office@terrafirmastrategies.com";
+
     // Sections content
     const sections = [
         // HOME
@@ -428,7 +437,7 @@ export function HomePage4({ className, ...props }: React.ComponentProps<"div">) 
 
             {/* Floating Email Button */}
             <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=office@terrafirmastrategies.com"
+                href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Send email to Terrafirma Marketing Consulting Services via Gmail"
